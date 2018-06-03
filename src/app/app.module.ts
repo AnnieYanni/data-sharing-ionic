@@ -10,6 +10,12 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {PublishMetaPage} from "../pages/publish-meta/publish-meta";
+import { MetaProvider } from '../providers/meta/meta';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { RequestProvider } from '../providers/request/request';
+import {RequestDataPage} from "../pages/request-data/request-data";
+import {CreateAccountPage} from "../pages/create-account/create-account";
 
 @NgModule({
   declarations: [
@@ -17,11 +23,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    PublishMetaPage,
+    RequestDataPage,
+    CreateAccountPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,12 +39,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    PublishMetaPage,
+    RequestDataPage,
+    CreateAccountPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    HttpClient,
+    MetaProvider,
+    RequestProvider
   ]
 })
 export class AppModule {}

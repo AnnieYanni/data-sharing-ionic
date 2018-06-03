@@ -1,17 +1,33 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      Responce
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
+
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+    <ion-list-header>Latest Response List</ion-list-header>
+    <ion-item *ngFor="let response of responses">
+      <ion-label>ID: {{response.id}}, {{response.keywords}}, {{response.bonus}}</ion-label>
+      <ion-checkbox color="dark" checked="off"></ion-checkbox>
     </ion-item>
   </ion-list>
+
+  <ion-buttons text-right>
+    <button ion-button (click)="showResponseAccept()">
+      <ion-icon name="edit"> </ion-icon>
+      Accept
+    </button>
+  </ion-buttons>
+
+  <ion-buttons text-right>
+    <button ion-button (click)="showResponseUpdate()">
+      <ion-icon name="edit"> </ion-icon>
+      Update
+    </button>
+  </ion-buttons>
+
 </ion-content>
